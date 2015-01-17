@@ -1,0 +1,121 @@
+@import ../settings/settings
+@-webkit-keyframes icon-beat
+	0%
+		-webkit-transform: scale(0)
+		-ms-transform: scale(0)
+		transform: scale(0)
+	100%
+		-webkit-transform: scale(1)
+		-ms-transform: scale(1)
+		transform: scale(1)
+@keyframes icon-beat
+	0%
+		-webkit-transform: scale(0)
+		-ms-transform: scale(0)
+		transform: scale(0)
+	100%
+		-webkit-transform: scale(1)
+		-ms-transform: scale(1)
+		transform: scale(1)
+form
+	.field-group
+		margin-bottom: 1em
+
+		label
+			display: block
+			margin-bottom: 0.5em
+
+			font-weight: bold
+
+		input:not([class^="btn"]),
+		textarea
+			border: 1px solid $field-border-color
+
+			padding: 0.75em
+
+			&:focus,
+			&:hover
+				border-color: darken($field-border-color, 15%)
+				outline: none
+
+			&.field-fw
+				width: 100%
+
+		.help
+			@extend small
+
+			margin: 0.5em 0 0
+
+			color: $muted-text-color
+			font-style: italic
+
+		&.field-error
+			label,
+			.help,
+			input
+				color: $field-error-color
+				border-color: lighten($field-error-color, 40%)
+
+	.required
+		color: $field-required-color
+
+	fieldset
+		border-color: $field-border-color
+
+		padding: 1.5em
+		margin-bottom: $baseline
+
+		legend
+			font-weight: bold
+
+			padding: 0 0.5em
+
+	input[type=checkbox],
+	input[type=radio]
+		display: none
+		+ label
+			display: block
+			font-weight: bold
+	input[type=checkbox] + label:before
+		background-color: #FFF
+		border: 1px solid $field-border-color
+
+		content: ""
+		display: inline-block
+		height: 1.25em
+		margin: -2px 6px 0 0
+		vertical-align: middle
+		width: 1.25em
+		
+		font-size: 0.75em
+		line-height: 1.25em
+		text-align: center
+		
+		cursor: pointer
+
+	input[type=checkbox]:checked + label:before
+		content: "\2713"
+
+	input[type=radio] + label:before
+		background-color: #FFF
+
+		border: 1px solid $field-border-color
+		border-radius: 1.2em
+
+		content: ""
+		display: inline-block
+		height: 0.6em
+		margin: -2px 6px 0 0
+		vertical-align: middle
+		width: 0.6em
+		
+		font-size: 1.5em
+		text-align: center
+		line-height: 0.6em
+
+		cursor: pointer
+
+	input[type=radio]:checked + label:before
+		content: "\2022"
+		-webkit-animation: icon-beat 0.1s ease
+		animation: icon-beat 0.1s ease
